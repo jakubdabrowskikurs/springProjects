@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymyleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Regex</title>
+</head>
+<body bgcolor="#99CC66">
+    <hr>
+    <font color="#4D4D4D" face="Arial" size="5">
+        <form method="post" th:action="@{/reg}" th:object="${userRegisterInput}" style="margin-left: 10%">
+            <p th:if="${infoName}!=null" th:text="${infoName}"></p>
+            <input type="text" th:field="*{name}" placeholder="enter name"><br>
+            <p th:if="${infoSurname}!=null" th:text="${infoSurname}"></p>
+            <input type="text" th:field="*{surName}" placeholder="enter surname"><br>
+            <p th:if="${infoEmail}!=null" th:text="${infoEmail}"></p>
+            <input type="text" th:field="*{email}" placeholder="enter email address"><br>
+            <p th:if="${infoStreet}!=null" th:text="${infoStreet}"></p>
+            <input type="text" th:field="*{street}" placeholder="enter street name"><br>
+            <p th:if="${infoPassword}!=null" th:text="${infoPassword}"></p>
+            <input type="password" th:field="*{password}" placeholder="enter password"><br>
+            <input type="submit" value="Register" size="5" style="width:173px; height: 35px; background-color: darkorange"><br>
+        </form>
+    </font>
+</body>
+</html>

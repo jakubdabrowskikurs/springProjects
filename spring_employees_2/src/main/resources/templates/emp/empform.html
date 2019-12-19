@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Add Form</title>
+</head>
+<body>
+<hr>
+<div class="container">
+    <h2>Employee Form</h2>
+    <div>
+        <form action="#" th:action="@{/save_emp}" th:object="${emp}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <input type="text" th:field="*{name}" placeholder="Name"><br>
+            <input type="text" th:field="*{salary}" placeholder="Salary"><br>
+            <input type="text" th:field="*{designation}" placeholder="Designation"><br>
+            <input type="submit">
+        </form>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>

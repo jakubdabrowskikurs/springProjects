@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Add Form</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}" type="text/css">
+</head>
+<body>
+<hr>
+<div class="container">
+    <h2>Employee Form</h2>
+    <div class="form-group">
+        <form action="#" class="form-group" th:action="@{/save_emp}" th:object="${emp}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <input type="text" class="form-control" th:field="*{name}" placeholder="Name"><br>
+            <input type="text" class="form-control" th:field="*{salary}" placeholder="Salary"><br>
+            <input type="text" class="form-control" th:field="*{designation}" placeholder="Designation"><br>
+            <input type="submit" class="btn btn-danger">
+        </form>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>

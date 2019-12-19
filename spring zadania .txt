@@ -1,0 +1,25 @@
+1. pokazanie działania projektu opartego na sprignu foo
+dorobienie funkcjonalności by przesyłało wartość, wyświetlało dodatkowy napis oraz żeby zniknął przycisk submit
+2. Pokazanie scopów
+3. spring_employees_1
+- naprawienie aplikacji by dział formularz
+- dodanie przycisku Test do widoku litu oraz obsługa jego, żeby logował do konsoli napis "Witaj Twoje_imię_i_nazwisko"
+- Dorobienie funkcjonalności edycji oraz usunięcia
+4. spring_employees_2
+- pokazanie funkcjonalności wysyłki maila 
+- pokazanie funkcjonalności
+5. spring_employees_3
+- podpięcie styli bootstrap + opowieść o CV
+- podpięcie lomboka
+6.  spring_employees_hibernate_1 
+- Podpięcie hibernate
+- utworzenie EmployeesDao oraz encji Employee oraz konfiguracji + odpalenie
+7. spring_employees_hibernate_2
+- Dodanie encji Cars oraz pokazanie @OneToMany dodanie CarsDao + odpalenie
+8. spring_employees_hibernate_3
+- dodanie do widoku listy oraz formularza oraz jego obsługa dla hibernate employees
+9. spring_employees_hibernate_4
+-dodanie abstrakcji "HibernateDao"
+-dodanie Phone 
+-dodanie Printe @ManyToMany
+-dodanie zasilania bazy danych

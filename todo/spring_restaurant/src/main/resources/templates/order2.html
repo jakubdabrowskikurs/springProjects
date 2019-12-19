@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body bgcolor="#99CC66">
+    <hr>
+    <div style="text-align: center;">
+        <span style="font-family: Arial; font-size: large; color: #6C6C6C; ">
+            <p th:text="${welcome}"></p><br>
+            <p th:text="${menu}"></p><br>
+            <right><p th:if="${userName}!=null" th:text="${userName}"></p></right><br>
+            <form method="post" th:action="@{/order}" th:object="${userRequest}" >
+                <input th:if="${userName}==null" type="text" th:field="*{name}" placeholder="your name">
+                <input type="text" th:field="*{mealName}" placeholder="meal name"><br>
+                <input type="submit" th:value="AddToOrder" name="addOrder" style="width: 150px; background-color: cornflowerblue">
+                <input type="submit" th:value="RemoveFromOrder" name="removeOrder" style="width: 150px; background-color: cornflowerblue">
+                <input type="submit" th:value="PlaceOrder" name="placeOrder" style="width: 150px; background-color: cornflowerblue">
+            </form>
+            <hr>
+            <p th:if="${currentOrder}!=null" th:text="${currentOrder}"></p>
+            <p th:if="${message}!=null" th:text="${message}"></p>
+        </span>
+    </div>
+</body>
+</html>

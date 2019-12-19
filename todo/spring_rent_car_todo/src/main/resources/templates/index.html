@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+
+<body bgcolor="#99CC66">
+    <span style="color: #4D4D4D; font-family: Arial; font-size: medium; ">
+        <hr>
+        <div style="text-align: center;"><p> Welcome to our Car Rent Services</p></div>
+        <hr>
+            <form method="post" th:action="@{/}" th:object="${userPreferencesModel}" style="margin-left: 10%">
+                what is your prefer total amount for rent?: <input type="text" th:field="*{moneyForRent}"><br>
+                how long in days you wanna rent our car: <input type="text" th:field="*{rentDuration}"><br>
+                what distance (aprox) you will cover?: <input type="text" th:field="*{proximalDistance}"><br>
+                what capacity of passenger you wish?: <input type="text" th:field="*{passengerCapacity}"><br><br>
+                <div style="text-align: center;"><input type="submit" value="CHECK AVAILABLE CARS" size="5" style="width:50%; height: 35px; background-color: darkorange"></div><br>
+            </form>
+        <hr>
+        <p th:if="${message1}!=null" th:text="${message1}"></p>
+        <p th:if="${message2}!=null" th:text="${message2}"></p>
+        <hr>
+        <i>
+            <footer>
+                <b><p>EXPECTED RESULTS SHOULD BE:</p></b>
+                <p>MONEY FOR RENT: 500, DURATION: 4, Distance: 500, PASSENGER: 1</p>
+                <p>CAR MODEL: fiat500, TOTAL COST: $377, COST PER EXTRA DAY: $28, COST PER EXTRA 100KM: $33</p>
+                <p>CAR MODEL: fiat124, TOTAL COST: $245, COST PER EXTRA DAY: $10, COST PER EXTRA 100KM: $1</p>
+                <p>CAR MODEL: renault clio, TOTAL COST: $293, COST PER EXTRA DAY: $22, COST PER EXTRA 100KM: $16</p>
+                <p>CAR MODEL: VW Touran, TOTAL COST: $500, COST PER EXTRA DAY: $50, COST PER EXTRA 100KM: $25</p>
+            </footer>
+        </i>
+
+    </span>
+    <hr>
+</body>
+</html>

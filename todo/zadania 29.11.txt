@@ -1,0 +1,2 @@
+Projekt restauracja: 
+	Zrobić taski oznaczone todo oraz need repair.
