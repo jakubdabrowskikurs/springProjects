@@ -1,0 +1,10 @@
+1. SpringbootH2Database1:
+-Dodanie menu w formie fragmentów.
+-Dodanie obsługi save oraz delete
+2. SpringbootH2Database2 rozwiązanie
+3. SpringbootH2Database3:
+Dodanie Car do Employee jako OneToMany
+4. SpringbootH2Database4:
+Dodanie możliwość przypisywania do Car Employee poprzez dropdown liste
+5. SpringbootH2Database5: rozwiązanie pokazanie tego
+6. Dodanie startowych danych jako sql insert
