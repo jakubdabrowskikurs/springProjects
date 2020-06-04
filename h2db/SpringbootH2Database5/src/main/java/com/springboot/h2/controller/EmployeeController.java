@@ -1,5 +1,6 @@
 package com.springboot.h2.controller;
 
+import com.springboot.h2.model.Car;
 import com.springboot.h2.model.Employee;
 import com.springboot.h2.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -10,9 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -31,7 +30,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employee_form", method = RequestMethod.GET)
-    public String showform(Model model) {
+    public String showForm(Model model) {
         model.addAttribute("employee", new Employee());
         return "employee/employee_form";
     }
@@ -42,7 +41,7 @@ public class EmployeeController {
             employeeService.save(employee);
             getEmployeeList().add(employee);
         } else {
-            Employee empTemp = getEmployeeById(employee.getId());
+            Employee empTemp = employeeService.getById(employee.getId());
             empTemp.setFirstName(employee.getFirstName());
             empTemp.setSalary(employee.getSalary());
             empTemp.setAddress(employee.getAddress());
@@ -52,29 +51,33 @@ public class EmployeeController {
             empTemp.setLastName(employee.getLastName());
             empTemp.setStartJobDate(employee.getStartJobDate());
             empTemp.setEmail(employee.getEmail());
+            employeeService.save(employee);
         }
-        employeeService.save(employee);
         return new ModelAndView("redirect:/employee_list");
     }
 
     @PostMapping(value = "/delete")
-    public ModelAndView delete(@RequestParam(value = "emp_id") String emp_id) {
-        Employee employee = getEmployeeById(Integer.parseInt(emp_id));
+    public ModelAndView delete(@RequestParam(value = "emp_id") int emp_id) {
+        Employee employee = employeeService.getById(emp_id);
         employeeService.delete(employee);
         employeeList.remove(employee);
         return new ModelAndView("redirect:/employee_list");
     }
 
     @PostMapping(value = "/edit")
-    public ModelAndView edit(@RequestParam(value = "emp_id") String emp_id) {
-        Employee employee = getEmployeeById(Integer.parseInt(emp_id));
+    public ModelAndView edit(@RequestParam(value = "emp_id") int emp_id) {
+        Employee employee = employeeService.getById(emp_id);
         return new ModelAndView("employee/employee_form", "employee", employee);
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public ModelAndView test() {
-        System.out.println("Test");
-        return new ModelAndView("redirect:/employee_list");
+    @PostMapping(value = "/addCar")
+    public String addCar(Model model, @RequestParam(value = "emp_id") int emp_id) {
+        Employee employee = employeeService.getById(emp_id);
+        Car car = new Car();
+        car.setEmployee(employee);
+        model.addAttribute("car", car);
+        model.addAttribute("empList", employeeService.getAll());
+        return "car/car_form";
     }
 
     @RequestMapping("/employee_list")
@@ -82,9 +85,9 @@ public class EmployeeController {
         return new ModelAndView("employee/employee_list", "list", getEmployeeList());
     }
 
-    private Employee getEmployeeById(int id) {
+/*    private Employee getEmployeeById(int id) {
         return employeeList.stream().filter(f -> f.getId() == id).findFirst().get();
-    }
+    }*/
 
     public Set<Employee> getEmployeeList() {
         return employeeList == null ? employeeList = employeeService.getAll() : employeeList;

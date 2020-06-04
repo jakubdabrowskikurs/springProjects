@@ -23,17 +23,18 @@
     <table class="table table-striped text-white">
         <thead>
         <tr class="text-white">
-            <th>id</th>
-            <th>employee</th>
+         <!--   <th>id</th>-->
+            <th>Employee</th>
             <th>Name</th>
             <th>Model</th>
             <th>Registration Date</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <tr class="result" data-th-each="car : ${list}">
-            <td th:text="${car.id}"></td>
-            <td th:text="${car.employee}"></td>
+         <!--   <td th:text="${car.id}"></td>-->
+            <td th:text="${car.employee.firstName}+' '+${car.employee.lastName}"></td>
             <td th:text="${car.name}"></td>
             <td th:text="${car.model}"></td>
             <td th:text="${car.registrationDate}"></td>
@@ -51,8 +52,5 @@
         </tbody>
     </table>
 </div>
-<form method="post" action="test">
-    <input type="submit" class="button" name="test" value="test"/>
-</form>
 </body>
 </html>

@@ -17,7 +17,7 @@
             <!--<input type="text" class="form-control" th:field="*{employee}" placeholder="Employee"><br>-->
             <select class="form-control" th:field="*{employee}" >
                 <option value="0">Select Employee</option>
-                <option th:each="emp : ${empList}" th:value="${emp.id}" th:text="${emp.firstName}"></option>
+                <option th:each="emp : ${empList}" th:selected="*{employee}" th:value="${emp.id}" th:text="${emp.firstName}"></option>
             </select><br>
             <input type="text" class="form-control" th:field="*{name}" placeholder="Name"><br>
             <input type="text" class="form-control" th:field="*{model}" placeholder="Model"><br>

@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class FooController {
+    //id fooController
+
     @RequestMapping(value = "/showForm", method= RequestMethod.GET)
+    //GetMapping
+    //PostMapping
     public String showForm(Model model) {
         Foo foo = new Foo();
         foo.setBar("bar");

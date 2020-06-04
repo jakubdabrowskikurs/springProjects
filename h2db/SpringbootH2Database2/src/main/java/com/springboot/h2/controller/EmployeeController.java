@@ -10,9 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -52,29 +50,23 @@ public class EmployeeController {
             empTemp.setLastName(employee.getLastName());
             empTemp.setStartJobDate(employee.getStartJobDate());
             empTemp.setEmail(employee.getEmail());
+            employeeService.save(employee);
         }
-        employeeService.save(employee);
         return new ModelAndView("redirect:/employee_list");
     }
 
     @PostMapping(value = "/delete")
-    public ModelAndView delete(@RequestParam(value = "emp_id") String emp_id) {
-        Employee employee = getEmployeeById(Integer.parseInt(emp_id));
-        employeeService.delete(employee);
+    public ModelAndView delete(@RequestParam(value = "emp_id") int emp_id) {
+        Employee employee = getEmployeeById(emp_id);
         employeeList.remove(employee);
+        employeeService.delete(employee);
         return new ModelAndView("redirect:/employee_list");
     }
 
     @PostMapping(value = "/edit")
-    public ModelAndView edit(@RequestParam(value = "emp_id") String emp_id) {
-        Employee employee = getEmployeeById(Integer.parseInt(emp_id));
+    public ModelAndView edit(@RequestParam(value = "emp_id") int emp_id) {
+        Employee employee = getEmployeeById(emp_id);
         return new ModelAndView("employee/employee_form", "employee", employee);
-    }
-
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public ModelAndView test() {
-        System.out.println("Test");
-        return new ModelAndView("redirect:/employee_list");
     }
 
     @RequestMapping("/employee_list")

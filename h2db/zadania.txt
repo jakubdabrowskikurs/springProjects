@@ -7,4 +7,12 @@ Dodanie Car do Employee jako OneToMany
 4. SpringbootH2Database4:
 Dodanie możliwość przypisywania do Car Employee poprzez dropdown liste
 5. SpringbootH2Database5: rozwiązanie pokazanie tego
+oraz dodanie usuwania kaskadowego
+6. SpringbootH2Database6
+Dodanie walidacji dla formularza oraz danych startowych dla employee, 
+porządek w stylach oraz usunięcie nadmiarowego bordera nad action 
+7.SpringbootH2Database7 dodanie walidacji dla Carsów
+8. Dorobienie API OpenWeatherMap
 6. Dodanie startowych danych jako sql insert
+7. Zrób filtorwanie po mailu itd
+    Set<Employee> findByEmailIgnoreCase(String email);

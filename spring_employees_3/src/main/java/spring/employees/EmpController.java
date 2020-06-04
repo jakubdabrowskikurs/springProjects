@@ -10,7 +10,10 @@ import java.util.List;
 
 @Controller
 public class EmpController {
+
     private List<EmpLombok> list;
+
+
 
     public EmpController() {
         list = new ArrayList<>();
@@ -47,14 +50,14 @@ public class EmpController {
     }
 
     @RequestMapping(value = "/delete_emp", method = RequestMethod.POST)
-    public ModelAndView delete(@RequestParam(value = "emp_id") String emp_id) {
-        list.remove(getEmployeesById(Integer.parseInt(emp_id)));
+    public ModelAndView delete(@RequestParam(value = "emp_id") int emp_id) {
+        list.remove(getEmployeesById(emp_id));
         return new ModelAndView("redirect:/viewemp");
     }
 
     @RequestMapping(value = "/edit_emp", method = RequestMethod.POST)
-    public ModelAndView edit(@RequestParam(value = "emp_id") String emp_id) {
-        EmpLombok emp = getEmployeesById(Integer.parseInt(emp_id));
+    public ModelAndView edit(@RequestParam(value = "emp_id") int emp_id) {
+        EmpLombok emp = getEmployeesById(emp_id);
         return new ModelAndView("emp/empform", "emp", emp);
     }
 

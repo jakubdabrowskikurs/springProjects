@@ -10,9 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -34,12 +32,6 @@ public class EmployeeController {
     public String showform(Model model) {
         model.addAttribute("employee", new Employee());
         return "employee/employee_form";
-    }
-
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public ModelAndView test() {
-        System.out.println("Test");
-        return new ModelAndView("redirect:/employee_list");
     }
 
     @RequestMapping("/employee_list")

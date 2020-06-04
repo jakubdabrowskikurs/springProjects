@@ -7,7 +7,8 @@ dorobienie funkcjonalności by przesyłało wartość, wyświetlało dodatkowy n
 - Dorobienie funkcjonalności edycji oraz usunięcia
 4. spring_employees_2
 - pokazanie funkcjonalności wysyłki maila 
-- pokazanie funkcjonalności
+- pokazanie rozwiązań zadań
+4.1 Pokazanie Lomboka
 5. spring_employees_3
 - podpięcie styli bootstrap + opowieść o CV
 - podpięcie lomboka
