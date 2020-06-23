@@ -13,7 +13,12 @@ Dodanie walidacji dla formularza oraz danych startowych dla employee,
 porządek w stylach oraz usunięcie nadmiarowego bordera nad action 
 7. SpringbootH2Database7 dodanie walidacji dla Carsów
 8. SpringbootH2Database8 Dodanie testów oraz testów Mockito
-8. Dorobienie API OpenWeatherMap
-6. Dodanie startowych danych jako sql insert
-7. Zrób filtorwanie po mailu itd
+9. SpringbootH2Database9 dodanie obsługi awatarów
+
+
+
+
+*. Dorobienie API OpenWeatherMap
+*. Dodanie startowych danych jako sql insert
+*. Zrób filtorwanie po mailu itd
     Set<Employee> findByEmailIgnoreCase(String email);
