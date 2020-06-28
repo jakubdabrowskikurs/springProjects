@@ -24,8 +24,13 @@ public class EmployeeService {
         repository.delete(employee);
     }
 
+    public Employee getById(int id){
+        return repository.getOne(id);
+    }
+
     public Set<Employee> getAll() {
         return repository.findAll().stream().collect(Collectors.toSet());
     }
 
 }
+

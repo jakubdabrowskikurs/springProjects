@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,6 +25,7 @@ public class Employee {
 
     @EqualsAndHashCode.Exclude
     @NotEmpty
+    @Size(min = 5, max = 40)
     private String lastName;
 
     @EqualsAndHashCode.Exclude
@@ -63,6 +65,5 @@ public class Employee {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Car> cars;
-
 }
 

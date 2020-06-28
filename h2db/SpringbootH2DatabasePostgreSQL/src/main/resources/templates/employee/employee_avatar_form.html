@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Add Form</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}" type="text/css">
+</head>
+<body class="p-3 mb-2 bg-dark text-white">
+<div th:replace="fragments/top_bar.html :: div.top-bar"></div>
+<div th:replace="fragments/scripts.html :: div.scripts-top-bar"></div>
+
+<hr>
+<div class="container flex-container">
+    <div th:each="avatar : ${allAvatars}" class="padding10px">
+        <form method="post" class="padding5px" action="#" th:action="@{/employee_avatar_form_save}">
+            <input type="hidden" th:name="avatarPath" th:value="${avatar}">
+            <input type="image" th:src="'images/' + *{avatar} + '.png'" class="btn btn-warning" value="submit">
+        </form>
+    </div>
+</div>
+</body>
+</html>

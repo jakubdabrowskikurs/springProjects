@@ -22,6 +22,10 @@ public class CarService {
         repository.delete(car);
     }
 
+    public Car getById(int id){
+        return repository.getOne(id);
+    }
+
     public Set<Car> getAll() {
         return repository.findAll().stream().collect(Collectors.toSet());
     }

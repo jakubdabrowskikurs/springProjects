@@ -24,6 +24,7 @@ public class Employee {
 
     @EqualsAndHashCode.Exclude
     @NotEmpty
+    @Size(min = 5, max = 40)
     private String lastName;
 
     @EqualsAndHashCode.Exclude

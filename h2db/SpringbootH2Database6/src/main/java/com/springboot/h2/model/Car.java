@@ -33,6 +33,5 @@ public class Car {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private LocalDate registrationDate;
-
 }
 

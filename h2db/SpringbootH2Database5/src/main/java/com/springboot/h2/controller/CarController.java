@@ -9,17 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Controller
 @RequiredArgsConstructor
 public class CarController {
 
     private final CarService carService;
     private final EmployeeService employeeService;
-
-    private Set<Car> carList = new HashSet<>();
 
     @RequestMapping(value = "/car_form", method = RequestMethod.GET)
     public String showForm(Model model) {
@@ -38,22 +33,20 @@ public class CarController {
     public ModelAndView delete(@RequestParam(value = "car_id") int car_id) {
         Car car = carService.getById(car_id);
         carService.delete(car);
-        carList.remove(car);
         return new ModelAndView("redirect:/car_list");
     }
 
     @PostMapping(value = "/edit_car")
-    public ModelAndView edit(@RequestParam(value = "car_id") int car_id) {
+    public String edit(@RequestParam(value = "car_id") int car_id, Model model) {
         Car car = carService.getById(car_id);
-        return new ModelAndView("car/car_form", "car", car);
+        model.addAttribute("employee", car.getEmployee());
+        model.addAttribute("car", car);
+        model.addAttribute("empList", employeeService.getAll());
+        return "car/car_form";
     }
 
     @RequestMapping("/car_list")
     public ModelAndView carList() {
         return new ModelAndView("car/car_list", "list", carService.getAll());
-    }
-
-    public Set<Car> getCarList() {
-        return carList == null ? carList = carService.getAll() : carList;
     }
 }
