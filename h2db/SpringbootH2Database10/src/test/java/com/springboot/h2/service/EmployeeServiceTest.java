@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.stream.Collectors;
@@ -22,16 +21,10 @@ public class EmployeeServiceTest {
     @Mock
     private Employee employee;
 
-    @Spy
-    private Employee employeeSpy;
-
     @Test
     public void saveEmployeeTest() {
         employeeService.save(employee);
         Mockito.verify(employeeService).save(employee);
-
-        System.out.println(employee);
-        System.out.println(employeeSpy);
 
         Mockito.when(employeeService.getAll()).thenReturn(Stream.of(employee).collect(Collectors.toSet()));
         assertEquals(employeeService.getAll(), Stream.of(employee).collect(Collectors.toSet()));
